@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>{{ site.title }} | {{ title }}</title>
+  <link rel="alternate" type="application/rss+xml" href="{{site.feed_url}}" />
+  <script src="/assets/build.js"></script>
+</head>
+<body>
+
+  <section class="centre container">
+    <h1 class="site-title"><a href="/"><img src="/assets/WEAReSLOW_Logo.svg"></a></h1>
+    <h3 class="grey">A monthly podcast on sustainability & fashion.</h3>
+  </section>
+
+  <div class="centre signup">
+    <section class="container">
+      <h3 style="max-width:15em;">Sign up here to get our latest podcast in your inbox!</h3>
+      <form method="post" target="_blank" action="http://slowfactory.us7.list-manage.com/subscribe/post?u=2572360f05297ce3376c6d5a5&id=c219cb0368">
+        <input class="signup__email" type="email" value="" name="EMAIL" placeholder="Enter your Email" required="true">
+        &nbsp;
+        <input class="signup__yes" type="submit" value="Yes" name="subscribe">
+      </form>
+    </section>
+  </div>
+
+
+  <section class="container">
+    <h2>Listen to our latest podcast</h2>
+    <div class="row">
+      <div class="col-sm-6">
+        <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/260293074&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
+      </div>
+      <div class="col-sm-4 grey centre">
+        Where slow and steady <br>truly wins the race.
+      </div>
+    </div>
+    <h2>Be on our next podcast!</h2>
+    <p>Ask us anything, use the hashtag: #weareslow</p>
+  </section>
+
+  {% if title == 'index' %}
+
+    {% for page in site.pages %}
+      {% if page.title != 'index' %}
+        <div class="page-{{ page.slug }}">
+          <section class="container">
+            <!-- <hr> -->
+            <h2>{{ page.title }}</h2>
+            {{ page.body }}
+          </section>
+        </div>
+        {% if page.pages %}
+          <section class="container">
+            <div class="row">
+              {% for subpage in page.pages %}
+                <div class="col-sm-5">
+                  {{ subpage.body }}
+                </div>
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+
+      {% endif %}
+    {% endfor %}
+
+  {% else %}
+
+    {{ body }}
+
+
+    {% if type == "post" %}
+      {% comment %} Show tagsets if this is a post {% endcomment %}
+
+      {% for tagset in taxonomy %}
+        <strong>{{tagset.key}} ({{tagset | size}} tags)</strong>
+        <ul>
+          {% for tag in tagset %}
+            <li><a href="{{tag.url}}">{{tag.value}}</a></li>
+          {% endfor %}
+        </ul>
+      {% endfor %}
+
+    {% else %}
+      {% comment %} Loop through any posts and show an excerpt {% endcomment %}
+      {% for post in posts %}
+        <article class="post-preview">
+          <h2><a href="{{post.url}}">{{post.title}}</a></h2>
+          {{post.body | strip_html | truncatewords: 100}}
+          <p><a href="{{post.url}}">View post</a>
+        </article>
+      {% endfor %}
+
+    {% endif %}
+
+    {% if parent %}
+      <p><a href="{{parent.url}}">&larr; Back to {{parent.title}}</a></p>
+    {% endif %}
+
+  {% endif %}
+
+  <div class="footer">
+    <div class="container"></div>
+  </div>
+
+</body>
+</html>

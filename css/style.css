@@ -1,0 +1,50 @@
+:focus {
+  outline: 0;
+}
+body {
+  font-family: Futura, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+h1, h2, h3, h4, .h1, .h2, .h3, .h4 { margin:0.5em auto; font-weight:normal; display:block; }
+h1, .h1 { font-size: 2em; margin:0.3em auto; }
+h2, .h2 { font-size: 1.6em; }
+h3, .h3 { font-size: 1.2em; }
+h4, .h4 { font-size: 0.9em; }
+
+hr { border-top: 2px solid #000; }
+p { margin:0 0 0.8em; max-width: 56em; }
+p img { max-width: 100%; }
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+@media (min-width:768px) {
+  .container { background: url('/assets/stripes.png') 100% 0 repeat-y; }
+}
+section { padding:30px 0; clear:both; }
+.centre { text-align: center; }
+.footer { background-color: var(--pink); }
+.footer .container { min-height: 20em; }
+
+.page-about {
+  background: var(--blue);
+  color: white;
+}
+
+.signup {
+  background: var(--yellow);
+}
+.signup__email {
+  border: 3px solid var(--grey);
+  padding: .75em;
+}
+.signup__yes {
+  background: var(--orange);
+  color: white;
+  border: 0;
+  border-radius: 1.5em;
+  width: 3em;
+  height: 3em;
+}

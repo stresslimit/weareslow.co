@@ -1,0 +1,30 @@
+{
+  "name": "WEAReSlow",
+  "version": "1.0.0",
+  "description": "We Are Slow",
+  "main": "js/index.js",
+  "scripts": {
+    "dev": "webpack --progress --colors --watch",
+    "build": "webpack --progress --colors --optimize-minimize"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stresslimit/weareslow.git"
+  },
+  "author": "Colin Vernon <colin@slowfactory.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stresslimit/weareslow/issues"
+  },
+  "homepage": "https://github.com/stresslimit/weareslow#readme",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "babel-core": "^5.6.15",
+    "babel-loader": "^5.3.1",
+    "css-loader": "^0.9.1",
+    "cssnext-loader": "^1.0.1",
+    "style-loader": "^0.8.3",
+    "webpack": "^1.13.0"
+  }
+}

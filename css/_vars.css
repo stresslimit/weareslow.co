@@ -1,0 +1,11 @@
+:root {
+  --blue: #2d82c9;
+  --orange: #ff5736;
+  --lime: #c0e0be;
+  --yellow: #ffc44e;
+  --pink: #e7a8bc;
+  --red: #eb392c;
+  --grey: #959595;
+}
+
+.grey { color: #8c8c84; }
