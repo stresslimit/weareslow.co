@@ -4,8 +4,10 @@
   "description": "We Are Slow",
   "main": "js/index.js",
   "scripts": {
+    "dev-server": "siteleaf server",
     "dev": "webpack --progress --colors --watch",
-    "build": "webpack --progress --colors --optimize-minimize"
+    "build": "webpack --progress --colors --optimize-minimize",
+    "deploy": "siteleaf push theme && siteleaf publish"
   },
   "repository": {
     "type": "git",
