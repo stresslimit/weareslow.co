@@ -27,19 +27,44 @@
 
 
   <section class="container">
-    <h2>Listen to our latest podcast</h2>
-    <div class="row">
-      <div class="col-sm-7">
-        <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/265442123&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
-        <!-- <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/260293074&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe> -->
-      </div>
-      <div class="col-sm-3 grey centre">
-        <p>Where slow and steady <br>truly wins the race.</p>
-        <p><a href="https://soundcloud.com/weareslow">Hear all episodes on Soundcloud</a></p>
-      </div>
-    </div>
-    <h2>Be on our next podcast!</h2>
-    <p>Ask us anything, use the hashtag: #weareslow</p>
+
+    {% for post in site.pages['episodes'].posts %}
+      {% if forloop.first == true %}
+
+        <h2>Listen to our latest podcast</h2>
+        <div class="row">
+          <div class="col-sm-7">
+
+            <p><iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ post.meta['soundcloud_id'] }}&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe></p>
+
+            {{ post.body }}
+
+          </div>
+          <!-- <div class="col-sm-3 grey centre">
+            <p>Where slow and steady <br>truly wins the race.</p>
+            <p><a href="https://soundcloud.com/weareslow">Hear all episodes on Soundcloud</a></p>
+          </div> -->
+        </div>
+        <!-- <h2>Be on our next podcast!</h2>
+        <p>Ask us anything, use the hashtag: #weareslow</p> -->
+
+      {% else %}
+
+        {% if forloop.index == 2 %}
+          <h2>Previous Episodes</h2>
+        {% endif %}
+
+        <div class="row">
+          <div class="col-sm-7">
+
+            <p><iframe width="100%" height="20" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ post.meta['soundcloud_id'] }}&amp;color=ff5500&amp;inverse=false&amp;auto_play=false&amp;show_user=true"></iframe></p>
+
+          </div>
+        </div>
+
+      {% endif %}
+    {% endfor %}
+
   </section>
 
   {% if title == 'index' %}

@@ -1,0 +1,30 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    httmultiparty (0.3.16)
+      httparty (>= 0.7.3)
+      mimemagic
+      multipart-post
+    httparty (0.13.7)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
+    json (1.8.3)
+    mimemagic (0.3.1)
+    multi_xml (0.5.5)
+    multipart-post (2.0.0)
+    psych (2.0.8)
+    rack (2.0.1)
+    siteleaf (1.0.7)
+      httmultiparty (>= 0.3.13)
+      httparty (>= 0.13.3)
+      psych (= 2.0.8)
+      rack
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  siteleaf (~> 1)
+
+BUNDLED WITH
+   1.12.5
